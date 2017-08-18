@@ -6,7 +6,7 @@ import java.util.Scanner;
  */
 public class App{
   public static void main(String[] args) {
-    Scanner in;
+    Scanner in = new Scanner(System.in);;
     String command;
     String taskToDo;
     String endPorgram;
@@ -14,7 +14,6 @@ public class App{
     Integer taskToChange;
 
     do {
-      in = new Scanner(System.in);
       System.out.println("Please specify a command [list, add, mark, remove, archive]: ");
       command = in.nextLine();
   
@@ -23,7 +22,6 @@ public class App{
 
       } else if (command.toLowerCase().equals("add")) {
   
-        in = new Scanner(System.in);
         System.out.println("Add an item: ");
         taskToDo = in.nextLine();
   
@@ -33,7 +31,6 @@ public class App{
 
       }  else if (command.toLowerCase().equals("mark")) {
   
-        in = new Scanner(System.in);
         System.out.println("Which one task you want to mark as completed: ");
         taskToChange = in.nextInt();
   
@@ -41,7 +38,6 @@ public class App{
   
       } else if (command.toLowerCase().equals("remove")) {
   
-        in = new Scanner(System.in);
         System.out.println("Which one task you want to remove: ");
         taskToChange = in.nextInt();
         taskList.removeTask(taskToChange);
@@ -54,12 +50,12 @@ public class App{
 
       }
 
-      in = new Scanner(System.in);
       System.out.println("Do you want to end YES/NO");
       endPorgram = in.nextLine();
 
     } while (!endPorgram.toLowerCase().equals("yes"));
 
+    in.close();
   }
 
 }
